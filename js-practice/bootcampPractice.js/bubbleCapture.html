@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Capture</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        /* .grandparent,.parent,.child{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        } */
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .grandparent{
+            width:20rem;
+            height:20rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:pink;
+        }
+        .parent{
+            width:17rem;
+            height:17rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:rgb(204, 71, 93);
+        }
+        .child{
+            width:12rem;
+            height:12rem;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:rgb(148, 10, 175);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grandparent">
+        grand Parent
+        <div class="parent">
+            parent
+            <div class="child">
+                child
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let grandParent=document.querySelector('.grandparent');
+        let parent=document.querySelector('.parent');
+        let child=document.querySelector('.child');
+
+        // bydefault is bubbling 
+        // grandParent.addEventListener('click',()=>{
+        //     console.log('grand parent');
+        // });
+        // parent.addEventListener('click',()=>{
+        //     console.log('parent');
+        // });
+        // child.addEventListener('click',()=>{
+        //     console.log('child');
+        // });
+
+        // capturing trickling 
+        // grandParent.addEventListener('click',()=>{
+        //     console.log('grand parent');
+        // },{capture:true});
+        // parent.addEventListener('click',()=>{
+        //     console.log('parent');
+        // },{capture:true});
+        // child.addEventListener('click',()=>{
+        //     console.log('child');
+        // });
+
+
+        // used stoppropogation to stop bubbling up or capturing down
+        grandParent.addEventListener('click',(e)=>{
+            e.stopPropagation;
+            console.log('grand parent');
+        },{capture:true});
+        parent.addEventListener('click',(e)=>{
+            e.stopPropagation;
+            console.log('parent');
+        },{capture:true});
+        child.addEventListener('click',(e)=>{
+            console.log('child');
+        });
+
+
+    </script>
+</body>
+</html>
