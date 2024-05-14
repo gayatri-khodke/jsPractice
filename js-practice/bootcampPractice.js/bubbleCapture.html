@@ -88,17 +88,45 @@
 
 
         // used stoppropogation to stop bubbling up or capturing down
-        grandParent.addEventListener('click',(e)=>{
-            e.stopPropagation;
-            console.log('grand parent');
-        },{capture:true});
-        parent.addEventListener('click',(e)=>{
-            e.stopPropagation;
-            console.log('parent');
-        },{capture:true});
-        child.addEventListener('click',(e)=>{
-            console.log('child');
-        });
+        // grandParent.addEventListener('click',(e)=>{
+        //     e.stopPropagation;
+        //     console.log('grand parent capturing');
+        // },{capture:true});
+        // parent.addEventListener('click',(e)=>{
+        //     e.stopPropagation;
+        //     console.log('parent capturing');
+        // },{capture:true});
+        // child.addEventListener('click',(e)=>{
+        //     console.log('child capturing');
+        // });
+
+
+        // mouseover will inherit mouseover event to the child and nastade child element also 
+        // that's why it is applying the mouseover event all grand parent , parent ,child element. 
+
+        // grandParent.addEventListener('mouseover',(e)=>{
+        //     e.stopPropagation;
+        //     console.log('mouseover on grand parent');
+        // });
+
+        // mouseenter will apply only the particular element now it do not inherit event to the child or nastade child 
+        // element. if there is sictueation like event bubbling or capturing then used mouseenter instead of mouseover
+
+        // grandParent.addEventListener('mouseenter',(e)=>{
+        //     e.stopPropagation;
+        //     console.log('mouseenter on grand parent');
+        // });
+
+        // it is also same case to inherit event from its parent to child in case of bubbling or capturing
+        //  instead of mouseout used mouseleave
+
+        // grandParent.addEventListener('mouseleave',(e)=>{
+        //     e.stopPropagation;
+        //     console.log('mouseleave on grand parent');
+        // });
+
+        // use mouseenter instead of mouseover
+        // use mouseleave instead of mouseout
 
 
     </script>

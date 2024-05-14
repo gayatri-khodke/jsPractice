@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fragment</title>
+</head>
+<body>
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+    
+
+    <script>
+        // In JavaScript fragment  refers to a DocumentFragment object.
+        // which is a lightweight container for holding DOM nodes. It is used as a temporary 
+        // container to hold multiple nodes before appending them to the actual DOM. Fragments
+        // help improve performance by allowing you to make multiple DOM updates without causing
+        // multiple layout recalculations and repaints.
+
+
+        let wraper=new DocumentFragment();
+
+        // instead of above line we can create fragment using bellow line also
+        // let wraper=document.createDocumentFragment();
+
+        let myul=document.querySelector('ul');
+        let arr=['four','five','six','seven'];
+        arr.forEach(e=>{
+            let li=document.createElement('li');
+            li.innerHTML=e;
+            wraper.appendChild(li);
+        })
+        myul.appendChild(wraper);
+
+
+
+    </script>
+</body>
+</html>
