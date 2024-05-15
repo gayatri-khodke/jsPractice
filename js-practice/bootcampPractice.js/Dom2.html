@@ -11,9 +11,22 @@
         <li>two</li>
         <li>three</li>
     </ul>
+    <!-- <ol class="wraper"></ol> -->
+    <!-- <ul class="secondul">
+
+    </ul> -->
+    <div class="displayclone">
+
+    </div>
     
 
     <script>
+        // how to add bunch of elements in html through js :-
+        // 1) using DocumentFragment()
+        // 2) using after
+        // 3) insertBefore()
+        //4) 
+
         // In JavaScript fragment  refers to a DocumentFragment object.
         // which is a lightweight container for holding DOM nodes. It is used as a temporary 
         // container to hold multiple nodes before appending them to the actual DOM. Fragments
@@ -21,19 +34,75 @@
         // multiple layout recalculations and repaints.
 
 
-        let wraper=new DocumentFragment();
+        // let wraper=new DocumentFragment();
 
         // instead of above line we can create fragment using bellow line also
         // let wraper=document.createDocumentFragment();
 
-        let myul=document.querySelector('ul');
-        let arr=['four','five','six','seven'];
-        arr.forEach(e=>{
-            let li=document.createElement('li');
-            li.innerHTML=e;
-            wraper.appendChild(li);
-        })
-        myul.appendChild(wraper);
+        // let myul=document.querySelector('ul');
+        // let arr=['four','five','six','seven'];
+        // arr.forEach(e=>{
+        //     let li=document.createElement('li');
+        //     li.innerHTML=e;
+        //     wraper.appendChild(li);
+        // })
+        // myul.appendChild(wraper);
+
+        // let myul=document.querySelector('ol');
+        // let array=['c','c++','python','java','javascript','php','react'];
+        // array.forEach(e=>{
+        //     let li=document.createElement('li');
+        //     li.innerHTML=e;
+        //     wraper.appendChild(li);
+        // })
+        // myul.appendChild(wraper);
+
+
+        // using after:-
+        // let myul=document.querySelector('.secondul');
+        // let array=['c','c++','python','java','javascript','php','react'];
+        // let items=array.map((e)=>{
+        //     const li=document.createElement('li');
+        //     li.innerHTML=e;
+        //     return li;
+        // });
+        // myul.lastChild.after(...items);
+        // myul.append(...items);
+
+        // after and append both are little bit similar but there is miner different 
+        // that is appen will append element always at the last position but using after 
+        // we can insert element after particular element 
+
+///////////////// clone html elements using cloneNode() method
+
+        // syntax:-  clone=originalnode.cloneNode(deep)
+
+        let displaydiv=document.querySelector('.displayclone');
+        let cloneelement=document.querySelector('ul');
+        let clone=cloneelement.cloneNode(true);
+        displaydiv.appendChild(clone);
+
+        // how to remove single element 
+        // let ulelement=document.querySelector('ul');
+        // ulelement.removeChild(ulelement.lastElementChild);
+
+        // how to remove all child element 
+        // let ulelement=document.querySelector('ul');
+        // ulelement.innerHTML='';
+
+        // we can remove all child using loop also
+        // while(ulelement.firstchild){
+        //     ulelement.firstchild.remove();
+        // }
+
+        // insertBefore() 
+        // syntax:- parentnode.insertBefore(newlode,existingnode);
+        // insertAfter()
+        // we will use before instead of insertBefore() method 
+
+        
+
+
 
 
 
