@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .grandparend, .parent, .child{
+            position:relative;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .grandparend{
+            width:40%;
+            height:400px;
+            background-color:pink;
+        }
+        .parent{
+            width:60%;
+            height:300px;
+            background-color:rgb(216, 91, 112);
+        }
+        .child{
+            width:60%;
+            height:200px;
+            background-color:rgb(230, 12, 48);
+        }
+    </style>
+</head>
+<body>
+    <div class="grandparend">
+        change text
+        <div class="parent">
+            change color
+            <div class="child">
+                change bg color
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+
+let grandparent = document.querySelector('.grandparend');
+
+// grandparent.addEventListener('click', function(event) {
+//     let target = event.target.classList;
+//     let element=event.target;
+
+//     // console.log(event.target);    
+//     if (target.contains('grandparend')) {
+//         element.style.color = 'white';
+//         console.log('grandparend');
+//     } else if (target.contains('parent')) {
+//         element.style.color = 'green';
+//         console.log('parent');
+//     } else if (target.contains('child')) {
+//         element.style.backgroundColor = 'blue';
+//         console.log('child');
+//     }
+// });
+
+// usign switch case :-
+grandparent.addEventListener('click', function(event) {
+    let target = event.target.classList[0];
+    let element=event.target;
+
+    switch(target) {
+    case 'grandparend':
+        element.style.color = 'white';
+        console.log('grandparent');
+        break;
+    case 'parent':
+        element.style.color = 'green';
+        console.log('parent');
+        break;
+    case 'child':
+        element.style.backgroundColor = 'blue';
+        console.log('child');
+        break;
+    default:
+        console.log('event not found');
+}
+});
+
+
+
+
+
+// e.target or event.target :--
+// We use event.target to determine which element was clicked (target).
+// we are getting actual html element that clicked 
+
+// event delegation:---
+// event delegation is a powerful technique in JavaScript for handling 
+// events efficientl and maintaining clean code.
+// Improve Performance: Since you only attach one event listener to a parent element, rather
+// than multiple listeners to each child element,Based on the clicked element, we execute different actions.
+// it reduces memory usage and improves performance.
+// it reduce code
+    </script>
+</body>
+</html>

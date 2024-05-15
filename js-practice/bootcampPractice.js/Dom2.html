@@ -12,20 +12,27 @@
         <li>three</li>
     </ul>
     <!-- <ol class="wraper"></ol> -->
-    <!-- <ul class="secondul">
+    <ul class="secondul">
 
-    </ul> -->
+    </ul>
     <div class="displayclone">
 
     </div>
+    <ul class="parentdiv">
+        <li>first item</li>
+        <li>second item</li>
+
+    </ul>
     
 
     <script>
-        // how to add bunch of elements in html through js :-
+        // how to add bunch of elements or a single element in html through js :-
         // 1) using DocumentFragment()
-        // 2) using after
+        // 2) using after()
         // 3) insertBefore()
-        //4) 
+        //4) before()
+        //5) append()
+        //6) appendChild()
 
         // In JavaScript fragment  refers to a DocumentFragment object.
         // which is a lightweight container for holding DOM nodes. It is used as a temporary 
@@ -59,28 +66,50 @@
 
 
         // using after:-
-        // let myul=document.querySelector('.secondul');
-        // let array=['c','c++','python','java','javascript','php','react'];
-        // let items=array.map((e)=>{
-        //     const li=document.createElement('li');
-        //     li.innerHTML=e;
-        //     return li;
-        // });
+        let myul=document.querySelector('.secondul');
+        let array=['c','c++','python','java','javascript','php','react'];
+        let items=array.map((e)=>{
+            const li=document.createElement('li');
+            li.innerHTML=e;
+            return li;
+        });
         // myul.lastChild.after(...items);
-        // myul.append(...items);
+        myul.append(...items);
 
         // after and append both are little bit similar but there is miner different 
         // that is appen will append element always at the last position but using after 
         // we can insert element after particular element 
+        
+        // let parentdiv=document.querySelector('.parentdiv');
+        // let myli=document.createElement('li');
+        // myli.innerHTML='added item';
+        // unorder.before(myh1);
+        // unorder.after(myh1);
+        // parentdiv.insertBefore(myli,parentdiv.children[1]);
+
+        // different between before and insertBefore() method :-
+        // insertBefore() is a method of the parent element and requires parent node and the 
+        //  reference node (the node before which the new node will be inserted).
+        // before() is a method of the DOM element itself and inserts new nodes directly before the selected element.
+        // insertBefore() requires a parent element and a reference node.
+        // before() is called directly on the target element(s) and inserts content before them.
+
+        // insertBefore() 
+        // syntax:- parentnode.insertBefore(newlode,existingnode);
+        //before()
+        // syntax:- targetelement.before(newelement);
+        // after()
+        // syntax:-  targetelement.after(newelement);
+
 
 ///////////////// clone html elements using cloneNode() method
 
         // syntax:-  clone=originalnode.cloneNode(deep)
 
-        let displaydiv=document.querySelector('.displayclone');
-        let cloneelement=document.querySelector('ul');
-        let clone=cloneelement.cloneNode(true);
-        displaydiv.appendChild(clone);
+        // let displaydiv=document.querySelector('.displayclone');
+        // let cloneelement=document.querySelector('ul');
+        // let clone=cloneelement.cloneNode(true);
+        // displaydiv.appendChild(clone);
 
         // how to remove single element 
         // let ulelement=document.querySelector('ul');
@@ -94,16 +123,24 @@
         // while(ulelement.firstchild){
         //     ulelement.firstchild.remove();
         // }
-
-        // insertBefore() 
-        // syntax:- parentnode.insertBefore(newlode,existingnode);
-        // insertAfter()
-        // we will use before instead of insertBefore() method 
-
         
 
+        // different between append, appendChild , after :-
+        // append(): Adds elements or text (it can be more then one element) as the last child of the selected element(s).
+        // appendChild(): Specifically adds a single node as the last child of the selected element.
+        // after(): Inserts elements or text immediately after the selected element(s).
+
+        // In short, append() and appendChild() both add nodes as the last child of a parent, but append() can 
+        // take multiple arguments while appendChild() only takes one. even we pass the array of
+        //  our nodelist appendChild will insert only first node.
+        // after() inserts content immediately after the selected element, not necessarily as a child of the same parent.
 
 
+    //      ------IMPORTANT  NOTE:-----
+    //    The insertAfter() method itself is not a native method in JavaScript or the DOM. It's a jQuery method that was used 
+    //    in older versions of jQuery to insert content after the selected elements.
+    //    However, modern jQuery versions do not include an insertAfter() method because jQuery provides .after() method for 
+    //    the same purpose. The .after() method allows you to insert content after the selected elements.
 
 
     </script>
