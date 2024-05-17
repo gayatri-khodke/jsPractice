@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+      .formdesign {
+        margin: 10px;
+      }
+
+      .formerror {
+        color: red;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/myaction.php" name="myForm" onsubmit="return validateForm()">
+      <div class="formdesign" id="name">
+        Name : <input type="text" name="fname" required /><span class="formerror"></span>
+      </div>
+
+      <div class="formdesign" id="email">
+        Email : <input type="email" name="femail" required /><span
+          class="formerror"
+        ></span>
+      </div>
+
+      <div class="formdesign" id="phone">
+        Phone : <input type="phone" name="fphone" required /><span
+          class="formerror"
+        ></span>
+      </div>
+
+      <div class="formdesign" id="pass">
+        Password : <input type="password" name="fpass" required /><span
+          class="formerror"
+        ></span>
+      </div>
+
+      <div class="formdesign" id="cpass">
+        Confirm Password : <input type="password" name="fcpass" required /><span
+          class="formerror"
+        ></span>
+      </div>
+
+      <!-- <button type="submit">Submit</button> -->
+      <input class="button" type="submit" value="Submit" />
+    </form>
+    <script>
+      function validateForm() {
+        let returnval = true;
+        clearErrors();
+
+        let name = document.forms["myForm"]["fname"].value;
+        if (name.length < 3) {
+          seterror("name", "*Length of name is too short");
+          returnval = false;
+        }
+
+        let email = document.forms["myForm"]["femail"].value;
+        if (!email.endsWith(".com")) {
+          seterror("email", "*Email is not valid");
+          returnval = false;
+        }
+
+        let phone = document.forms["myForm"]["fphone"].value;
+        if (phone.length != 10) {
+          seterror("phone", "*Phone number should be of 10 digits");
+          returnval = false;
+        }
+
+        if (
+            !phone.startsWith(9) &&
+            !phone.startsWith(8) &&
+            !phone.startsWith(7) &&
+            !phone.startsWith(6)
+        ) {
+          seterror("phone", "*Phone number should start with 9, 8, 7 or 6");
+          console.log(phone.startWith(9),!phone.startWith(9));
+          returnval = false;
+        }
+
+        let password = document.forms["myForm"]["fpass"].value;
+        if (password.length < 6) {
+          seterror("pass", "*Password should be of atleast 6 characters");
+          returnval = false;
+        }
+
+        // Task: Password should contain atleast one number, one uppercase and one lowercase letter and one special character
+
+        let cpassword = document.forms["myForm"]["fcpass"].value;
+        if (password != cpassword) {
+          seterror("cpass", "*Password and Confirm password should match");
+          returnval = false;
+        }
+
+        return returnval;
+      }
+
+      function seterror(id, error) {
+        let element = document.getElementById(id);
+        element.getElementsByClassName("formerror")[0].innerHTML = error;
+      }
+
+      function clearErrors() {
+        errors = document.getElementsByClassName("formerror");
+        for (let item of errors) {
+          item.innerHTML = "";
+        }
+      }
+    </script>
+  </body>
+</html>

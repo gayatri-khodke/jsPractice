@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Keydown Event Example</title>
+<style>
+    .firstdiv,.seconddiv{
+       width: 200px;
+       height: 100px;
+      border: 1px solid black;
+      margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <input type="text" placeholder="Type here">
+    <div tabindex="0" class="firstdiv">
+        Focusable Div
+    </div>
+    <div tabindex="0"/ class="seconddiv">
+        second div
+    </div>
+
+    <script>
+        // Keydown event on input field
+        document.querySelector('input').addEventListener('keydown', function(event) {
+            console.log('Key down in input field:', event.key);
+        });
+
+        // Keydown event on div (focusable)
+        document.querySelector('seconddiv').addEventListener('keydown', function(event) {
+            console.log('Key down in div:', event.key);
+        });
+
+        // Keydown event on document
+        document.addEventListener('keydown', function(event) {
+            console.log('Key down in document:', event.key);
+        });
+    </script>
+</body>
+</html>

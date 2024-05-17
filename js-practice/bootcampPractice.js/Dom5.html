@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="usertext" value="">
+    <button>change</button>
+    <button id="btn1">Reverse</button>
+    <button id="btn2">Reverse word by word</button>
+    <h1 class="output">text</h1>
+    
+</body>
+<script>
+    let usertext = document.querySelector('#usertext');
+    let myh1 = document.querySelector('.output');
+    let button = document.querySelector('button');
+    let button1 = document.querySelector('#btn1');
+    let button2 = document.querySelector('#btn2');
+
+    button.addEventListener('click', capitalizetext);
+    button1.addEventListener('click',reverseword);
+    button2.addEventListener('click',reversetext);
+
+    function capitalizetext() {
+        let str = usertext.value;
+        let arrstr = str.split(' ');
+        console.log(arrstr);
+        for (let i = 0; i < arrstr.length; i++) {
+            arrstr[i] = arrstr[i][0].toUpperCase() + arrstr[i].substring(1);
+        }
+        let t = arrstr.join(' ');
+        console.log(t);
+        myh1.innerHTML = t;
+    }
+
+    function reversetext(){
+        let input=usertext.value;
+        let reverse=input.split('').reverse().join('');
+        myh1.innerHTML=reverse;
+    }
+
+    function reverseword(){
+        let uservalue=usertext.value;
+        let strarray=uservalue.split(' ').reverse();
+        for(let i=0;i<strarray.length;i++){
+        strarray[i].split('').reverse().join(' ');
+        }
+        myh1.innerHTML=strarray.join(' ');
+    }
+</script>
+</html>
