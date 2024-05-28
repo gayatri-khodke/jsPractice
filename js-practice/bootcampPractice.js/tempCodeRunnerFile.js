@@ -1,4 +1,1 @@
-
-let regex = /^hello/;
-console.log(regex.test("hello world")); // true
-console.log(regex.test("world he
+console.log('fibonacci:-',fibonacci(5)); // Output: 1

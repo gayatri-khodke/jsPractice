@@ -130,14 +130,6 @@
 
 // but if we are using replace methd with the global flag then we dont need to use replaceAll it work same .
 
-
-
-
-
-
-
-
-
 // *****inshort****
 // . (dot) - Matches any single character except newline.
 // * - Matches zero or more occurrences of the preceding character.
@@ -164,3 +156,27 @@
 // \{ matches a literal opening curly brace character.
 // \} matches a literal closing curly brace character.
 // Using the backslash to escape special characters allows you to search for these characters in the input text as literal characters, rather than as part of the regex syntax.
+
+
+
+// 1. Write a JavaScript program to test whether the first character of a string is uppercase or not.
+// let str1='Javascript';
+// let regex=/^[A-Z]/;
+// let check=regex.test(str1);
+// console.log(check);
+
+// 2) Write a JavaScript function to check whether a given value is HTML or not.
+function isHTML(str) {
+    const regex = /<\/?[a-z][\s\S]*>/i;
+    return regex.test(str);
+}
+// let str1 = '<html> </html>';
+// let str2 = 'This is not HTML';
+// console.log(isHTML(str1)); // true
+// console.log(isHTML(str2)); // false
+
+// 3) check the input value is hexadecimal or not
+let str='fff40gj0';
+let regex=/^[0-9a-fA-F]+$/i;
+let check=regex.test(str);
+// console.log(check);
