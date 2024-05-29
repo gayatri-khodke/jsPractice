@@ -146,3 +146,74 @@
 // }
 // enterAtm();
 
+
+
+function enterAtm() {
+        console.log('Enter ATM');
+        return insertCard();
+    }
+    
+    function insertCard() {
+        return new Promise((resolve) => {
+            console.log('insert ATM');
+            resolve();
+        }).then(() => processing());
+    }
+    
+    function processing() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log('Processing');
+                resolve();
+            }, 5000);
+        }).then(() => enterPin());
+    }
+    
+    function enterPin() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log('Enter pin code');
+                resolve();
+            }, 2000);
+        }).then(() => withdrawMoney());
+    }
+    
+    function withdrawMoney() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log('withdraw money');
+                resolve();
+            }, 5000);
+        }).then(() => collectCash());
+    }
+    
+    function collectCash() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log('collect cash');
+                resolve();
+            }, 1000);
+        }).then(() => leaveAtm());
+    }
+    
+    function leaveAtm() {
+        console.log('leave ATM');
+    }
+    enterAtm();
+
+
+
+// learn callstack
+    // function printFun(test) 
+    // { 
+    //     if (test < 1) 
+    //         return 0; 
+    //     else { 
+    //         console.log(test + " "); 
+    //         printFun(test - 1); // statement 2 
+    //         console.log(test + " "); 
+    //         return; 
+    //     } 
+    // } 
+    // let test = 3; 
+    // printFun(test);
