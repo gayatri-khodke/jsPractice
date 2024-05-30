@@ -4,7 +4,7 @@
 // it is used to handle anyscrinic operation and callback Hell in JS 
 
 
-
+// create function with promise and get the output acording to the gift receive or not 
 function receiveGift() {
     return true;
 }

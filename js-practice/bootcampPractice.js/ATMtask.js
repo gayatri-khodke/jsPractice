@@ -147,59 +147,110 @@
 // enterAtm();
 
 
-
+// ****************another approach promise chaining******************
 function enterAtm() {
-        console.log('Enter ATM');
-        return insertCard();
+    return new Promise((resolve)=>{
+        resolve('Enter ATM');
+    })
     }
     
     function insertCard() {
-        return new Promise((resolve) => {
-            console.log('insert ATM');
-            resolve();
-        }).then(() => processing());
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve('Insert ATM');
+            },1000)
+        })
     }
     
     function processing() {
-        return new Promise((resolve) => {
+        return new Promise((resolve,reject)=>{
             setTimeout(() => {
-                console.log('Processing');
-                resolve();
+                resolve('Processing');
+                // reject('rejected');
             }, 5000);
-        }).then(() => enterPin());
+        })
     }
     
     function enterPin() {
-        return new Promise((resolve) => {
+        return new Promise((resolve)=>{
             setTimeout(() => {
-                console.log('Enter pin code');
-                resolve();
+               resolve('Enter pin code');
             }, 2000);
-        }).then(() => withdrawMoney());
+        })
     }
     
     function withdrawMoney() {
-        return new Promise((resolve) => {
+        return new Promise((resolve)=>{
             setTimeout(() => {
-                console.log('withdraw money');
-                resolve();
+                resolve('withdraw money');
             }, 5000);
-        }).then(() => collectCash());
+        })
     }
     
     function collectCash() {
-        return new Promise((resolve) => {
+        return new Promise((resolve)=>{
             setTimeout(() => {
-                console.log('collect cash');
-                resolve();
+                resolve('collect cash');
             }, 1000);
-        }).then(() => leaveAtm());
+        })
     }
     
     function leaveAtm() {
-        console.log('leave ATM');
+        return new Promise((resolve)=>{
+            resolve('leave ATM');
+        })
     }
-    enterAtm();
+    enterAtm()
+    .then((result)=>{
+        console.log(result);
+        return insertCard();
+    })
+    .then((result)=>{
+        console.log(result);
+        return processing();
+    })
+    .then((result)=>{
+        console.log(result);
+        return enterPin();
+    })
+    .then((result)=>{
+        console.log(result);
+        return withdrawMoney();
+    })
+    .then((result)=>{
+        console.log(result);
+        return collectCash();
+    })
+    .then((result)=>{
+        console.log(result);
+        return leaveAtm();
+    })
+    .then((result)=>{
+        console.log(result);
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
